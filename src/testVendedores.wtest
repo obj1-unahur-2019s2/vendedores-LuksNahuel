@@ -1,0 +1,23 @@
+import vendedores.*
+import ciudad_provincias.*
+import certificaciones.*
+
+describe "Test sobre vendedores" {
+	// Provincias
+	const santaFe = new Provincia(poblacion = 3369000)
+	const cordoba = new Provincia(poblacion = 1391000)
+	const entreRios = new Provincia(poblacion = 130800)
+	
+	// Ciudades
+	const rosario = new Ciudad(provincia = santaFe)
+	const rafaela = new Ciudad(provincia = santaFe)
+	const sanFrancisco = new Ciudad(provincia = cordoba)
+	const diamante = new Ciudad(provincia = entreRios)
+	
+	const corresponsal = new ComercioCorresponsal(tieneSucursalEn = [rosario, diamante, sanFrancisco])
+	
+	test "Comercio corresponsal" {
+		assert.that(corresponsal.esInfluyente())
+	}
+	
+}
